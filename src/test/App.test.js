@@ -61,6 +61,9 @@ describe("Test App", () => {
       expect(grid).toBeInTheDocument();
       const cardTitles = within(grid).getAllByRole("heading");
       expect(cardTitles).toHaveLength(mockRepoData.length);
+      expect(cardTitles.map((t) => t.textContent)).toEqual(
+        mockRepoData.map((r) => r.full_name)
+      );
     });
   });
 });
