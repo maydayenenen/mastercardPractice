@@ -10,7 +10,7 @@ This application allows to display a list of repositories with the username type
 
 ### Debounce
 I write ```useDebounce()``` to delays the process of the keyup event until the user has stopped typing for a preddetermned amount of time, 
-which can reduces the number of API calls sent to your server. I implements this function in **SearchList.js**. 
+which can reduces the number of API calls sent to GitHub server. I implements this hook in **SearchList.js**. 
 
 ```js
 const useDebounce = (value, callback, delay = 1000) => {
@@ -32,8 +32,8 @@ const useDebounce = (value, callback, delay = 1000) => {
 export default useDebounce;
 ```
 
-### StyledComponents
-StyledComponents implements **CSS-in-JS**, which makes every single component more integrated. It is easier to debug or manage the project. 
+### Styled-Components
+Styled-Components implements **CSS-in-JS**, which makes every single component more integrated. This is a better way to write components with power of JavaScript. 
 
 ```js
 export default styled(SearchList)`
@@ -96,9 +96,7 @@ export const getReposByUser = (userName) => {
 The test is implemented using **@testing-library**.
 <br />
 Total: 1 test suite and 6 test cases 
-<br />
-Coverage: 
-![](screenshot/coverage.jpeg)
+
 <br />
 I test if the UI is rendered properly by checking if the App, title, and input box is rendered correctly. 
 Also I use the **setupServer** function from **msw** to mock an API request that our tested component makes.
