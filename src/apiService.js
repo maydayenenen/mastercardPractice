@@ -9,7 +9,7 @@ export const searchUser = (term) => {
     },
     auth: {
       username: "maydayenenen",
-      password: "6fd1877b610bb497301e0749e7d31de250ba071f"
+      password: "b9baf8255b93923392747fab763205931ce0d103"
     }
   });
 };
@@ -18,7 +18,7 @@ export const getReposByUser = (userName) => {
   return axios.get(`${BASE_URL}/users/${userName}/repos`, {
     auth: {
       username: "maydayenenen",
-      password: "6fd1877b610bb497301e0749e7d31de250ba071f"
+      password: "b9baf8255b93923392747fab763205931ce0d103"
     }
   });
 };
