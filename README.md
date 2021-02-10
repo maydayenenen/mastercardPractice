@@ -9,16 +9,31 @@ This application allows to display a list of repositories with the username type
 ## Optimazition 
 
 ### Debounce
-This ```useDebounce()``` delays the process of the keyup event until the user has stopped typing for a preddetermned amount of time, 
-which can reduces the number of API calls sent to your server. This is a commonly used technology in search input box. 
-
+I write ```useDebounce()``` to delays the process of the keyup event until the user has stopped typing for a preddetermned amount of time, 
+which can reduces the number of API calls sent to your server. I implements this function in **SearchList.js**. 
 
 ```js
-useDebounce(term, loadUser, 500);
+const useDebounce = (value, callback, delay = 1000) => {
+  const ref = useRef(null);
+
+  useEffect(() => {
+    if (ref.current) {
+      clearTimeout(ref.current);
+    }
+    ref.current = setTimeout(() => {
+      callback(value);
+    }, delay);
+    return () => {
+      clearTimeout(ref.current);
+    };
+  }, [value, ref, callback, delay]);
+};
+
+export default useDebounce;
 ```
 
-### StyledComponent
-StyledComponent implements **CSS-in-JS**, which makes every single component more integrated. It is easier to debug or manage the project. 
+### StyledComponents
+StyledComponents implements **CSS-in-JS**, which makes every single component more integrated. It is easier to debug or manage the project. 
 
 ```js
 export default styled(SearchList)`
